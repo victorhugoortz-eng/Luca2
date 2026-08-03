@@ -7,12 +7,12 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#f1f5f9;
+  --bg:#f0f4f8;
   --surface:#ffffff;
-  --surface2:#f8fafc;
+  --surface2:#f7f9fc;
   --border:#e2e8f0;
   --border2:#cbd5e1;
-  --text:#0f172a;
+  --text:#1e293b;
   --muted:#64748b;
   --light:#94a3b8;
   --blue:#2563eb;
@@ -25,140 +25,149 @@
   --red:#dc2626;
   --red-soft:#fef2f2;
   --indigo:#4f46e5;
+  --purple:#7c3aed;
   --radius:10px;
 }
 html{font-size:15px;-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,Helvetica,sans-serif;
   line-height:1.6;min-height:100vh;padding-bottom:48px}
 
 /* HEADER */
-.hdr{background:var(--surface);border-bottom:1px solid var(--border);
-  padding:18px 24px;display:flex;align-items:center;
-  justify-content:space-between;flex-wrap:wrap;gap:12px;
-  position:sticky;top:0;z-index:10;}
-.hdr-left{display:flex;align-items:center;gap:12px}
-.logo{width:40px;height:40px;border-radius:9px;flex-shrink:0;
-  background:linear-gradient(135deg,#2563eb,#4f46e5);
+.hdr{
+  background:var(--surface);
+  border-bottom:1px solid var(--border);
+  padding:20px 24px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;
+}
+.hdr-left{display:flex;align-items:center;gap:14px}
+.logo{
+  width:42px;height:42px;border-radius:10px;flex-shrink:0;
+  background:linear-gradient(135deg,#2563eb 0%,#4f46e5 100%);
   display:flex;align-items:center;justify-content:center;
-  font-weight:900;font-size:18px;color:#fff;letter-spacing:-1px;}
-.hdr-title{font-size:1.15rem;font-weight:700;color:var(--text)}
-.hdr-sub{font-size:.74rem;color:var(--muted);margin-top:1px}
-.hdr-meta{font-size:.7rem;color:var(--muted);text-align:right;line-height:1.8}
+  font-weight:900;font-size:20px;color:#fff;letter-spacing:-1px;
+}
+.hdr-title{font-size:1.25rem;font-weight:700;color:var(--text);letter-spacing:-.3px}
+.hdr-sub{font-size:.78rem;color:var(--muted);margin-top:1px}
+.hdr-meta{font-size:.72rem;color:var(--muted);text-align:right;line-height:1.8}
 .hdr-meta b{color:var(--text);font-weight:600}
 
 /* LAYOUT */
-.wrap{max-width:1260px;margin:0 auto;padding:0 16px}
-section{margin-top:32px}
-.sec-title{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--muted);padding-bottom:9px;border-bottom:2px solid var(--border);
-  margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+section{margin-top:36px}
+.sec-title{
+  font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);padding-bottom:10px;border-bottom:2px solid var(--border);
+  margin-bottom:18px;display:flex;align-items:center;gap:8px;
+}
 .sec-dot{width:7px;height:7px;border-radius:50%;background:var(--blue);flex-shrink:0}
 
 /* KPI GRID */
-.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
-.kpi{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-  padding:14px 12px 11px;position:relative;overflow:hidden;}
-.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  border-radius:var(--radius) var(--radius) 0 0;background:var(--c,var(--blue));}
-.kpi-lbl{font-size:.62rem;font-weight:700;letter-spacing:.07em;
-  text-transform:uppercase;color:var(--muted);margin-bottom:7px}
-.kpi-val{font-size:1.8rem;font-weight:800;line-height:1;letter-spacing:-1px;color:var(--text)}
-.kpi-note{font-size:.65rem;color:var(--light);margin-top:4px}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+.kpi{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:16px 14px 13px;position:relative;overflow:hidden;
+}
+.kpi::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  border-radius:var(--radius) var(--radius) 0 0;background:var(--c,var(--blue));
+}
+.kpi-lbl{font-size:.65rem;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.kpi-val{font-size:1.9rem;font-weight:800;line-height:1;letter-spacing:-1px;color:var(--text)}
+.kpi-note{font-size:.68rem;color:var(--light);margin-top:5px}
 
 /* INSIGHTS */
-.insights-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:11px}
-.insight-card{background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--radius);padding:14px 16px;border-left:4px solid var(--c,var(--blue));}
-.insight-card.good{--c:var(--green)}.insight-card.warn{--c:var(--amber)}
-.insight-card.danger{--c:var(--red)}.insight-card.info{--c:var(--blue)}
-.insight-title{font-size:.8rem;font-weight:700;color:var(--text);margin-bottom:4px}
-.insight-body{font-size:.74rem;color:var(--muted);line-height:1.5}
+.insights-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.insight-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:16px;border-left:4px solid var(--c,var(--blue));
+}
+.insight-card.good{--c:var(--green)}
+.insight-card.warn{--c:var(--amber)}
+.insight-card.danger{--c:var(--red)}
+.insight-card.info{--c:var(--blue)}
+.insight-title{font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:5px}
+.insight-body{font-size:.76rem;color:var(--muted);line-height:1.55}
 .insight-body b{color:var(--text)}
+.insight-icon{font-size:.9rem;margin-bottom:6px}
 
 /* TWO COL */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
-.panel-lbl{font-size:.68rem;font-weight:700;letter-spacing:.06em;
-  text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.panel-lbl{font-size:.7rem;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:16px}
 
 /* FUNNEL BARS */
-.f-row{display:flex;align-items:center;gap:10px;margin-bottom:9px}
-.f-lbl{width:170px;font-size:.77rem;color:var(--text);flex-shrink:0;white-space:nowrap}
-.f-track{flex:1;height:18px;background:var(--bg);border-radius:4px;overflow:hidden;border:1px solid var(--border)}
-.f-bar{height:100%;border-radius:3px}
-.f-cnt{width:46px;text-align:right;font-size:.77rem;font-weight:600;color:var(--text);flex-shrink:0}
-.f-note{font-size:.7rem;color:var(--muted);margin-top:10px;padding-top:9px;border-top:1px solid var(--border)}
-
-/* CHART */
-.chart-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
-.chart-lbl{font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:14px}
+.f-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.f-lbl{width:175px;font-size:.79rem;color:var(--text);flex-shrink:0;white-space:nowrap}
+.f-track{flex:1;height:20px;background:var(--bg);border-radius:5px;overflow:hidden;border:1px solid var(--border)}
+.f-bar{height:100%;border-radius:4px;transition:width .5s cubic-bezier(.4,0,.2,1)}
+.f-cnt{width:50px;text-align:right;font-size:.79rem;font-weight:600;color:var(--text);flex-shrink:0}
+.f-note{font-size:.72rem;color:var(--muted);margin-top:12px;padding-top:10px;border-top:1px solid var(--border)}
 
 /* TABLES */
 .t-wrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border);-webkit-overflow-scrolling:touch}
-table{border-collapse:collapse;width:100%;font-size:.79rem;min-width:480px}
-thead th{background:var(--surface2);color:var(--muted);
-  font-size:.63rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  padding:9px 11px;border-bottom:1px solid var(--border2);
-  white-space:nowrap;text-align:right;cursor:pointer;user-select:none;}
+table{border-collapse:collapse;width:100%;font-size:.8rem;min-width:500px}
+thead th{
+  background:var(--surface2);color:var(--muted);
+  font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:10px 12px;border-bottom:1px solid var(--border2);
+  white-space:nowrap;text-align:right;cursor:pointer;user-select:none;
+  transition:background .1s,color .1s;
+}
 thead th:hover{background:var(--blue-mid);color:var(--blue)}
-thead th.sorted{background:var(--blue-mid);color:var(--blue)}
 thead th:first-child{text-align:left}
-.sort-icon{margin-left:3px;opacity:.35;font-size:.75em}
+thead th.sorted{background:var(--blue-mid);color:var(--blue)}
+.sort-icon{margin-left:3px;opacity:.4;font-size:.75em}
 thead th.sorted .sort-icon,thead th:hover .sort-icon{opacity:1}
-tbody tr{border-bottom:1px solid var(--border)}
+tbody tr{border-bottom:1px solid var(--border);transition:background .1s}
 tbody tr:last-child{border-bottom:none}
 tbody tr:hover{background:var(--blue-soft)}
 .tr-alt{background:var(--surface2)}
-td{padding:8px 11px;vertical-align:middle}
+td{padding:9px 12px;vertical-align:middle}
 .td-name{color:var(--text);font-weight:500;white-space:nowrap}
 .td-num{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+
+/* STATUS COLORS */
 .cell-green{color:var(--green)!important;font-weight:600}
 .cell-amber{color:var(--amber)!important;font-weight:600}
 .cell-red{color:var(--red)!important;font-weight:600}
-.rank-1{color:#b45309;font-weight:700}.rank-2{color:var(--muted);font-weight:600}.rank-3{color:#92400e;font-weight:600}
-.badge{display:inline-block;padding:1px 6px;border-radius:4px;font-size:.62rem;font-weight:700;margin-right:3px}
+.rank-1{color:var(--amber);font-weight:700}
+.rank-2{color:var(--muted);font-weight:600}
+.rank-3{color:#92400e;font-weight:600}
+
+/* BADGES */
+.badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:.65rem;font-weight:700;margin-right:4px}
 .badge-ok{background:var(--green-soft);color:var(--green)}
 .badge-warn{background:var(--amber-soft);color:var(--amber)}
 .badge-danger{background:var(--red-soft);color:var(--red)}
+.badge-info{background:var(--blue-soft);color:var(--blue)}
 
-/* HEATMAP */
-.hm-legend{display:flex;align-items:center;gap:8px;font-size:.7rem;color:var(--muted);margin-bottom:14px;flex-wrap:wrap}
-.hm-swatch{display:inline-block;width:28px;height:16px;border-radius:3px;border:1px solid var(--border);vertical-align:middle}
-.th-hm{text-align:center!important;font-size:.62rem!important;padding:8px 5px!important;min-width:46px;white-space:nowrap}
-.th-total{background:var(--surface2)!important;border-left:2px solid var(--border2)!important;color:var(--text)!important}
-.td-hm{text-align:center;padding:6px 5px!important;font-size:.8rem;vertical-align:middle;font-variant-numeric:tabular-nums}
-.td-total-val{font-size:.8rem;font-weight:600;border-left:2px solid var(--border2);color:var(--text)!important;background:var(--surface2)}
-.td-ganadas-val{font-size:.8rem;font-weight:600;color:var(--green)!important}
-.wr-pct{font-size:.65rem;color:var(--muted);font-weight:400}
-.totals-row{border-top:2px solid var(--border2)!important}
-.totals-row td{background:var(--surface2)!important;font-weight:700}
-.hm-0{background:#fff;color:var(--light)}
-.hm-1{background:#dbeafe;color:#1d4ed8}
-.hm-2{background:#93c5fd;color:#1e3a8a}
-.hm-3{background:#2563eb;color:#fff}
+/* SCROLL HINT on mobile */
+.scroll-hint{display:none;font-size:.7rem;color:var(--light);text-align:right;margin-bottom:6px;padding-right:2px}
 
-/* HINT */
-.scroll-hint{display:none;font-size:.68rem;color:var(--light);text-align:right;margin-bottom:5px}
-
-/* FOOTER */
 footer{margin-top:48px;border-top:1px solid var(--border);background:var(--surface);
-  padding:14px 24px;display:flex;justify-content:space-between;
-  font-size:.68rem;color:var(--muted);flex-wrap:wrap;gap:6px;}
+  padding:16px 24px;display:flex;justify-content:space-between;
+  font-size:.7rem;color:var(--muted);flex-wrap:wrap;gap:6px;}
 
-@media(max-width:720px){
-  .hdr{padding:14px 16px}.hdr-meta{display:none}
+/* MOBILE */
+@media(max-width:700px){
+  .hdr{padding:16px}
+  .hdr-meta{display:none}
   .wrap{padding:0 12px}
   .two-col{grid-template-columns:1fr}
   .kpi-grid{grid-template-columns:repeat(2,1fr)}
-  .kpi-val{font-size:1.5rem}
+  .kpi-val{font-size:1.6rem}
+  .f-lbl{width:130px;font-size:.72rem}
   .insights-grid{grid-template-columns:1fr}
   .scroll-hint{display:block}
-  .f-lbl{width:120px;font-size:.72rem}
-  section{margin-top:24px}
+  section{margin-top:28px}
 }
-@media(max-width:380px){.kpi-val{font-size:1.3rem}}
+@media(max-width:380px){
+  .kpi-grid{grid-template-columns:repeat(2,1fr)}
+  .kpi-val{font-size:1.4rem}
+}
 </style>
 </head>
 <body>
@@ -172,9 +181,9 @@ footer{margin-top:48px;border-top:1px solid var(--border);background:var(--surfa
     </div>
   </div>
   <div class="hdr-meta">
-    Generado: <b>03 Ago 2026</b><br>
+    Generado: <b>03 Aug 2026</b><br>
     Org: <b>lucaedu.my.salesforce.com</b><br>
-    <b>24</b> SDRs · <b>31</b> BDRs
+    <b>24</b> SDRs &nbsp;·&nbsp; <b>31</b> BDRs
   </div>
 </header>
 
@@ -184,14 +193,46 @@ footer{margin-top:48px;border-top:1px solid var(--border);background:var(--surfa
 <section>
   <div class="sec-title"><span class="sec-dot"></span>KPIs Globales</div>
   <div class="kpi-grid">
-    <div class="kpi" style="--c:#2563eb"><div class="kpi-lbl">Citas Generadas</div><div class="kpi-val">868</div><div class="kpi-note">con fecha confirmada</div></div>
-    <div class="kpi" style="--c:#0891b2"><div class="kpi-lbl">Videollamadas</div><div class="kpi-val">316</div><div class="kpi-note">36% de citas</div></div>
-    <div class="kpi" style="--c:#7c3aed"><div class="kpi-lbl">Presenciales</div><div class="kpi-val">332</div><div class="kpi-note">38% de citas</div></div>
-    <div class="kpi" style="--c:#059669"><div class="kpi-lbl">Es Luca</div><div class="kpi-val">141</div><div class="kpi-note">16.2% conv. SDR</div></div>
-    <div class="kpi" style="--c:#4f46e5"><div class="kpi-lbl">Demos BDR</div><div class="kpi-val">249</div><div class="kpi-note">en cita</div></div>
-    <div class="kpi" style="--c:#d97706"><div class="kpi-lbl">En Negociación</div><div class="kpi-val">709</div><div class="kpi-note">propuestas activas</div></div>
-    <div class="kpi" style="--c:#059669"><div class="kpi-lbl">Cerrada Ganada</div><div class="kpi-val">105</div><div class="kpi-note">win rate 35.2%</div></div>
-    <div class="kpi" style="--c:#dc2626"><div class="kpi-lbl">Cerrada Perdida</div><div class="kpi-val">193</div><div class="kpi-note">64.8% de cerradas</div></div>
+    <div class="kpi" style="--c:#2563eb">
+      <div class="kpi-lbl">Citas Generadas</div>
+      <div class="kpi-val">868</div>
+      <div class="kpi-note">con fecha confirmada</div>
+    </div>
+    <div class="kpi" style="--c:#0891b2">
+      <div class="kpi-lbl">Videollamadas</div>
+      <div class="kpi-val">316</div>
+      <div class="kpi-note">36% de citas</div>
+    </div>
+    <div class="kpi" style="--c:#7c3aed">
+      <div class="kpi-lbl">Presenciales</div>
+      <div class="kpi-val">332</div>
+      <div class="kpi-note">38% de citas</div>
+    </div>
+    <div class="kpi" style="--c:#059669">
+      <div class="kpi-lbl">Es Luca</div>
+      <div class="kpi-val">141</div>
+      <div class="kpi-note">16.2% conv. SDR</div>
+    </div>
+    <div class="kpi" style="--c:#4f46e5">
+      <div class="kpi-lbl">Demos BDR</div>
+      <div class="kpi-val">249</div>
+      <div class="kpi-note">en cita</div>
+    </div>
+    <div class="kpi" style="--c:#d97706">
+      <div class="kpi-lbl">En Negociación</div>
+      <div class="kpi-val">709</div>
+      <div class="kpi-note">propuestas activas</div>
+    </div>
+    <div class="kpi" style="--c:#059669">
+      <div class="kpi-lbl">Cerrada Ganada</div>
+      <div class="kpi-val">105</div>
+      <div class="kpi-note">win rate 35.2%</div>
+    </div>
+    <div class="kpi" style="--c:#dc2626">
+      <div class="kpi-lbl">Cerrada Perdida</div>
+      <div class="kpi-val">193</div>
+      <div class="kpi-note">64.8% de cerradas</div>
+    </div>
   </div>
 </section>
 
@@ -199,14 +240,46 @@ footer{margin-top:48px;border-top:1px solid var(--border);background:var(--surfa
 <section>
   <div class="sec-title"><span class="sec-dot" style="background:var(--amber)"></span>Hallazgos Clave</div>
   <div class="insights-grid">
-    <div class="insight-card good"><div class="insight-title">🏆 Top BDR: Luis Dominguez — 62.5% win rate</div><div class="insight-body">Con <b>20 cierres de 32 opps</b>, es el BDR más efectivo. Perfil presencial fuerte (28 visitas vs. 70 video).</div></div>
-    <div class="insight-card good"><div class="insight-title">⭐ SDR destaque: Georgina Ruvalcaba — 26.3% conv.</div><div class="insight-body"><b>38 citas, 10 clientes</b>. Mejor conversión entre SDRs con volumen real. Candidata a mentora.</div></div>
-    <div class="insight-card warn"><div class="insight-title">⚠️ Milton figura como SDR y BDR — revisar datos</div><div class="insight-body"><b>344 citas como SDR</b> (40% del equipo) + <b>179 demos como BDR con 0 cierres</b>. Posible rol duplicado en SF.</div></div>
-    <div class="insight-card warn"><div class="insight-title">📊 709 opps en negociación sin resolución</div><div class="insight-body">Pipeline grande sin limpiar. Muchas pueden ser stale — el win rate real podría ser diferente al reportado.</div></div>
-    <div class="insight-card danger"><div class="insight-title">🔴 Jorge Fuentes: 54 opps — 7.4% win rate</div><div class="insight-body"><b>50 en negociación, solo 4 ganadas</b>. Mayor volumen con menor efectividad. Requiere coaching urgente.</div></div>
-    <div class="insight-card danger"><div class="insight-title">🔴 Alfonso Reyes: 88 opps — 6.1% win rate</div><div class="insight-body"><b>55 negociación, 31 perdidas, 2 ganadas</b>. Junto a Jorge, mayor brecha volumen/efectividad del equipo.</div></div>
-    <div class="insight-card info"><div class="insight-title">💡 Luis Dominguez genera sus propias opps (63.6%)</div><div class="insight-body">Aparece también como SDR Soporte con la conversión más alta. Maneja ciclo completo o cuentas directas.</div></div>
-    <div class="insight-card info"><div class="insight-title">📋 332 presenciales a cruzar con gastos</div><div class="insight-body">Cada visita presencial debe tener respaldo. Auditar gastos vs. registro en Salesforce mensualmente.</div></div>
+    <div class="insight-card good">
+      <div class="insight-icon">🏆</div>
+      <div class="insight-title">Top BDR: Luis Dominguez — 62.5% win rate</div>
+      <div class="insight-body">Con <b>20 cierres de 32 oportunidades</b>, es el BDR más efectivo. Perfil presencial fuerte (28 vs. 70 video).</div>
+    </div>
+    <div class="insight-card good">
+      <div class="insight-icon">⭐</div>
+      <div class="insight-title">SDR destaque: Georgina Ruvalcaba — 26.3% conv.</div>
+      <div class="insight-body"><b>38 citas, 10 clientes</b>. Mejor conversión SDR con volumen real. Candidata a mentora.</div>
+    </div>
+    <div class="insight-card warn">
+      <div class="insight-icon">⚠️</div>
+      <div class="insight-title">Milton figura como SDR y BDR — revisar datos</div>
+      <div class="insight-body"><b>344 citas como SDR</b> (40% del equipo) + <b>179 demos como BDR con 0 cierres</b>. Posible rol duplicado en Salesforce.</div>
+    </div>
+    <div class="insight-card warn">
+      <div class="insight-icon">📊</div>
+      <div class="insight-title">709 opps en negociación sin resolución</div>
+      <div class="insight-body">Pipeline grande sin limpiar. Si hay opps stale, el win rate real podría ser muy diferente.</div>
+    </div>
+    <div class="insight-card danger">
+      <div class="insight-icon">🔴</div>
+      <div class="insight-title">Jorge Fuentes: 54 opps — 7.4% win rate</div>
+      <div class="insight-body"><b>50 en negociación, solo 4 ganadas</b>. Mayor volumen con menor efectividad. Requiere coaching.</div>
+    </div>
+    <div class="insight-card danger">
+      <div class="insight-icon">🔴</div>
+      <div class="insight-title">Alfonso Reyes: 88 opps — 6.1% win rate</div>
+      <div class="insight-body"><b>55 negociación, 31 perdidas, 2 ganadas</b>. Junto a Jorge, los dos BDRs con mayor brecha volumen/efectividad.</div>
+    </div>
+    <div class="insight-card info">
+      <div class="insight-icon">💡</div>
+      <div class="insight-title">Luis Dominguez genera sus propias opps (63.6%)</div>
+      <div class="insight-body">Aparece también como SDR Soporte con la conversión más alta. Maneja ciclo completo o tiene cuentas directas.</div>
+    </div>
+    <div class="insight-card info">
+      <div class="insight-icon">📋</div>
+      <div class="insight-title">332 presenciales a cruzar con gastos</div>
+      <div class="insight-body">Cada visita presencial debe tener respaldo. Recomendable auditar gastos vs. registro en Salesforce mensualmente.</div>
+    </div>
   </div>
 </section>
 
@@ -221,7 +294,7 @@ footer{margin-top:48px;border-top:1px solid var(--border);background:var(--surfa
       <div class="f-row"><div class="f-lbl">Cita agendada</div><div class="f-track"><div class="f-bar" style="width:29.2%;background:#d97706"></div></div><div class="f-cnt">893</div></div>
       <div class="f-row"><div class="f-lbl">Es Luca ✓</div><div class="f-track"><div class="f-bar" style="width:4.6%;background:#059669"></div></div><div class="f-cnt">141</div></div>
       <div class="f-row"><div class="f-lbl">Rechazó ✗</div><div class="f-track"><div class="f-bar" style="width:100%;background:#dc2626"></div></div><div class="f-cnt">3,060</div></div>
-      <div class="f-note">Conversión SDR: <b style="color:var(--green)">5.4%</b> (141 / 2,622 en seguimiento)</div>
+      <div class="f-note">Conversión total SDR: <b style="color:var(--green)">5.4%</b> (141 / 2,622 en seguimiento)</div>
     </div>
     <div class="panel">
       <div class="panel-lbl">💼 Funnel BDR — Oportunidades</div>
@@ -229,17 +302,8 @@ footer{margin-top:48px;border-top:1px solid var(--border);background:var(--surfa
       <div class="f-row"><div class="f-lbl">Negociación</div><div class="f-track"><div class="f-bar" style="width:100%;background:#d97706"></div></div><div class="f-cnt">709</div></div>
       <div class="f-row"><div class="f-lbl">Cerrada Ganada ✓</div><div class="f-track"><div class="f-bar" style="width:14.8%;background:#059669"></div></div><div class="f-cnt">105</div></div>
       <div class="f-row"><div class="f-lbl">Cerrada Perdida ✗</div><div class="f-track"><div class="f-bar" style="width:27.2%;background:#dc2626"></div></div><div class="f-cnt">193</div></div>
-      <div class="f-note">Win rate: <b style="color:var(--green)">35.2%</b> (105/298 cerradas) · Pipeline activo: <b style="color:var(--amber)">709 opps</b></div>
+      <div class="f-note">Win rate: <b style="color:var(--green)">35.2%</b> (105/298 cerradas) · Pipeline: <b style="color:var(--amber)">709 opps activas</b></div>
     </div>
-  </div>
-</section>
-
-<!-- CHART -->
-<section>
-  <div class="sec-title"><span class="sec-dot" style="background:#0891b2"></span>Tendencia Mensual</div>
-  <div class="chart-box">
-    <div class="chart-lbl">📈 Citas · Demos · Cierres por Mes</div>
-    <canvas id="trendChart" height="170"></canvas>
   </div>
 </section>
 
@@ -265,7 +329,7 @@ footer{margin-top:48px;border-top:1px solid var(--border);background:var(--surfa
 
 <!-- BDR TABLE -->
 <section>
-  <div class="sec-title"><span class="sec-dot" style="background:var(--green)"></span>Performance BDR</div>
+  <div class="sec-title"><span class="sec-dot" style="background:var(--green)"></span>Performance BDR — Top representantes</div>
   <div class="scroll-hint">← Desliza para ver más →</div>
   <div class="t-wrap">
     <table id="bdr-table">
@@ -304,33 +368,10 @@ footer{margin-top:48px;border-top:1px solid var(--border);background:var(--surfa
   </div>
 </section>
 
-<!-- HEATMAP RITMO -->
-<section>
-  <div class="sec-title"><span class="sec-dot" style="background:var(--indigo)"></span>Ritmo de Asignación por SDR — Opps creadas por mes</div>
-  <div class="hm-legend">
-    <span class="hm-swatch hm-0"></span> Sin opps &nbsp;
-    <span class="hm-swatch hm-1"></span> 1–2 &nbsp;
-    <span class="hm-swatch hm-2"></span> 3–5 &nbsp;
-    <span class="hm-swatch hm-3"></span> 6+ &nbsp;&nbsp;
-    <span style="color:var(--muted)">· Ganadas = IsWon · % = Ganadas ÷ Total creadas por SDR</span>
-  </div>
-  <div class="scroll-hint">← Desliza para ver más →</div>
-  <div class="t-wrap">
-    <table>
-      <thead><tr>
-        <th style="text-align:left;min-width:145px">SDR Soporte</th>
-        <th class="th-hm">Ago'25</th><th class="th-hm">Sep'25</th><th class="th-hm">Oct'25</th><th class="th-hm">Nov'25</th><th class="th-hm">Dic'25</th><th class="th-hm">Ene'26</th><th class="th-hm">Feb'26</th><th class="th-hm">Mar'26</th><th class="th-hm">Abr'26</th><th class="th-hm">May'26</th><th class="th-hm">Jun'26</th><th class="th-hm">Jul'26</th><th class="th-hm">Ago'26</th>
-        <th class="th-hm th-total">Total</th><th class="th-hm th-total">Ganadas</th>
-      </tr></thead>
-      <tbody id="hm-body"></tbody>
-    </table>
-  </div>
-</section>
-
 </div>
 
 <footer>
-  <span>Luca Educación · Datos al 03 Ago 2026</span>
+  <span>Luca Educación · Datos al 03 Aug 2026</span>
   <span>Fuente: Salesforce · lucaedu.my.salesforce.com</span>
 </footer>
 
@@ -397,76 +438,11 @@ const ATTR=[
   ["Luis Gómez",0,2,1,0,33.3],
   ["Mauricio Esquivel",3,20,1,2,3.8],
 ];
-// Heatmap data: [name, ago25,sep25,oct25,nov25,dic25,ene26,feb26,mar26,abr26,may26,jun26,jul26,ago26, total, ganadas]
-const HM=[
-  ["Milton Rodríguez",0,0,0,174,0,0,0,2,2,0,0,1,0,179,7],
-  ["Jessica Cárdenas Álvarez",0,0,0,20,14,15,13,8,11,3,4,3,2,93,10],
-  ["Ulises Castañeda",0,0,0,10,11,13,16,11,5,8,3,6,1,84,6],
-  ["Rosa I. Hernandez Garcia",0,0,0,15,5,15,13,10,8,4,0,1,0,71,7],
-  ["Sandra Osuna",0,0,0,10,6,10,12,11,6,4,4,1,1,65,2],
-  ["Andrea Espinoza",0,0,0,2,7,9,8,8,14,7,3,6,0,64,2],
-  ["Dulce Perez",0,0,0,5,15,10,9,10,6,7,1,0,1,64,5],
-  ["Zulma Dueñas",0,0,0,3,2,16,16,10,4,6,3,3,0,63,8],
-  ["Griselda Castañeda",0,0,0,9,7,7,16,8,8,4,2,1,0,62,5],
-  ["Fernanda Armenta",0,0,0,4,5,7,10,8,13,9,3,0,0,59,6],
-  ["Veronica Guzman",0,0,0,5,3,6,15,9,6,2,0,1,2,49,9],
-  ["Mireya Gonzalez",0,0,0,3,2,3,13,7,3,7,0,1,3,42,4],
-  ["Yennifer Acevedo",0,0,0,6,2,5,7,3,5,6,3,0,0,37,2],
-  ["Daniel Franco",0,0,0,5,6,8,5,3,5,2,1,0,0,35,3],
-  ["Mayra Burgos",0,0,0,0,0,3,11,7,4,5,3,1,1,35,2],
-  ["Lydia Gonzalez Rangel",0,0,0,1,2,3,5,5,4,2,1,3,1,27,0],
-  ["Mauricio Esquivel",0,0,0,0,0,1,8,8,6,2,1,0,0,26,1],
-  ["Blanca Adriana Pérez",0,0,0,0,0,1,6,6,12,0,0,0,0,25,0],
-  ["Santiago Franco Zuno",0,0,0,0,0,0,2,10,5,5,0,0,0,22,0],
-  ["Samantha Garcia",0,0,0,8,5,3,0,3,2,0,1,0,0,22,0],
-  ["Andrea L. Florencio Maciel",0,0,0,8,3,0,0,0,0,0,0,0,0,11,0],
-  ["Luis Dominguez",0,0,0,1,10,0,0,0,0,0,0,0,0,11,7],
-  ["Arely Quintana",0,0,0,4,2,2,0,2,0,0,0,0,0,10,3],
-  ["Fatima Perez Cambero",0,0,0,7,1,0,0,0,0,0,0,0,0,8,0],
-  ["Ana Luisa Armadillo Hdz.",0,0,0,0,0,1,3,2,1,0,0,0,0,7,0],
-  ["Fernando Carrillo",0,0,0,6,1,0,0,0,0,0,0,0,0,7,0],
-  ["Luis Gómez",0,0,0,0,2,1,0,0,0,0,0,0,0,3,1],
-  ["Sergio Arenas",0,0,0,0,0,0,0,3,0,0,0,0,0,3,0],
-  ["Jorge Fuentes",0,0,0,0,0,2,0,0,0,0,0,0,0,2,0],
-  ["Victor Ortiz",0,0,0,0,0,0,0,0,0,0,0,1,0,1,1],
-];
-const HM_TOTALS=[0,0,0,310,112,141,188,154,132,84,34,31,12,1198,92];
-
-function hmClass(v){
-  if(v===0) return 'hm-0';
-  if(v<=2) return 'hm-1';
-  if(v<=5) return 'hm-2';
-  return 'hm-3';
-}
-function hmCell(v){
-  return `<td class="td-hm ${hmClass(v)}">${v===0?'·':v}</td>`;
-}
-
-function renderHM(){
-  const tb=document.getElementById('hm-body');
-  tb.innerHTML=HM.map((r,i)=>{
-    const [name,...rest]=r;
-    const months=rest.slice(0,13);
-    const total=rest[13], gan=rest[14];
-    const pct=total>0?Math.round(gan/total*100):0;
-    return `<tr class="${i%2?'tr-alt':''}">
-      <td class="td-name">${name}</td>
-      ${months.map(v=>hmCell(v)).join('')}
-      <td class="td-hm td-total-val">${total}</td>
-      <td class="td-hm td-ganadas-val">${gan} <span class="wr-pct">(${pct}%)</span></td>
-    </tr>`;
-  }).join('')+`<tr class="totals-row">
-    <td class="td-name">TOTAL</td>
-    ${HM_TOTALS.slice(0,13).map(v=>hmCell(v)).join('')}
-    <td class="td-hm td-total-val">${HM_TOTALS[13]}</td>
-    <td class="td-hm td-ganadas-val">${HM_TOTALS[14]} <span class="wr-pct">(${Math.round(HM_TOTALS[14]/HM_TOTALS[13]*100)}%)</span></td>
-  </tr>`;
-}
 
 function cc(v){return v>=25?'cell-green':v>=10?'cell-amber':'cell-red'}
 function wc(v){return v>=40?'cell-green':v>=20?'cell-amber':'cell-red'}
 
-const tables={
+let tables={
   sdr:{data:[...SDR],col:6,asc:false},
   bdr:{data:[...BDR],col:5,asc:false},
   attr:{data:[...ATTR],col:5,asc:false},
@@ -504,14 +480,18 @@ function sort(key,col,num){
     const bv=num?+b[col]:b[col].toLowerCase();
     return t.asc?(av>bv?1:-1):(av<bv?1:-1);
   });
-  const tid=key+'-table';
-  document.querySelectorAll(`#${tid} thead th`).forEach((th,i)=>{
+  const tableId=key+'-table';
+  document.querySelectorAll(`#${tableId} thead th`).forEach((th,i)=>{
     th.classList.remove('sorted');
     const ic=th.querySelector('.sort-icon');
     if(ic) ic.textContent='↕';
   });
-  const ths=document.querySelectorAll(`#${tid} thead th`);
-  if(ths[col]){ths[col].classList.add('sorted');const ic=ths[col].querySelector('.sort-icon');if(ic) ic.textContent=t.asc?'↑':'↓';}
+  const ths=document.querySelectorAll(`#${tableId} thead th`);
+  if(ths[col]){
+    ths[col].classList.add('sorted');
+    const ic=ths[col].querySelector('.sort-icon');
+    if(ic) ic.textContent=t.asc?'↑':'↓';
+  }
   if(key==='sdr') renderSDR(t.data);
   else if(key==='bdr') renderBDR(t.data);
   else renderAttr(t.data);
@@ -520,63 +500,6 @@ function sort(key,col,num){
 renderSDR(tables.sdr.data);
 renderBDR(tables.bdr.data);
 renderAttr(tables.attr.data);
-renderHM();
-
-// Chart
-(function(){
-  var canvas=document.getElementById('trendChart');
-  if(!canvas) return;
-  var months=["Oct'25","Nov'25","Dic'25","Ene'26","Feb'26","Mar'26","Abr'26","May'26","Jun'26","Jul'26"];
-  var citas=[97,81,53,118,151,108,101,81,34,8];
-  var demos=[1,21,53,18,27,46,22,24,11,4];
-  var closes=[0,0,0,0,0,12,3,13,22,55];
-  var dpr=window.devicePixelRatio||1;
-  var W=canvas.parentElement.clientWidth;
-  var H=170;
-  canvas.width=W*dpr;canvas.height=H*dpr;
-  canvas.style.width=W+'px';canvas.style.height=H+'px';
-  var ctx=canvas.getContext('2d');
-  ctx.scale(dpr,dpr);
-  var P={t:14,r:16,b:46,l:44};
-  var CW=W-P.l-P.r, CH=H-P.t-P.b;
-  var n=months.length;
-  var mx=Math.max.apply(null,[].concat(citas,demos,closes));
-  function xp(i){return P.l+i*CW/(n-1);}
-  function yp(v){return P.t+CH*(1-v/mx);}
-  for(var g=0;g<=4;g++){
-    var gy=P.t+CH*g/4;
-    ctx.strokeStyle='#e2e8f0';ctx.lineWidth=1;
-    ctx.beginPath();ctx.moveTo(P.l,gy);ctx.lineTo(P.l+CW,gy);ctx.stroke();
-    ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
-    ctx.fillText(Math.round(mx*(1-g/4)),P.l-6,gy+3);
-  }
-  var bw=Math.max(3,CW/n*0.35);
-  for(var i=0;i<citas.length;i++){
-    if(!citas[i]) continue;
-    var bh=CH*citas[i]/mx;
-    ctx.fillStyle='rgba(37,99,235,.1)';
-    ctx.fillRect(xp(i)-bw/2,P.t+CH-bh,bw,bh);
-  }
-  function line(data,color,dash){
-    ctx.beginPath();ctx.setLineDash(dash||[]);ctx.strokeStyle=color;ctx.lineWidth=2;
-    data.forEach(function(v,i){i===0?ctx.moveTo(xp(i),yp(v)):ctx.lineTo(xp(i),yp(v));});
-    ctx.stroke();ctx.setLineDash([]);
-    data.forEach(function(v,i){if(!v) return;ctx.beginPath();ctx.arc(xp(i),yp(v),3,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();});
-  }
-  line(citas,'#2563eb');
-  line(demos,'#d97706',[4,3]);
-  line(closes,'#059669');
-  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='center';
-  months.forEach(function(m,i){ctx.fillText(m,xp(i),P.t+CH+16);});
-  var LEG=[['Citas','#2563eb'],['Demos','#d97706'],['Cierres','#059669']];
-  var lx=P.l;
-  LEG.forEach(function(l){
-    ctx.fillStyle=l[1];ctx.fillRect(lx,P.t+CH+28,12,5);
-    ctx.fillStyle='#64748b';ctx.font='10px sans-serif';ctx.textAlign='left';
-    ctx.fillText(l[0],lx+15,P.t+CH+34);
-    lx+=l[0].length*5.5+30;
-  });
-})();
 </script>
 </body>
 </html>
